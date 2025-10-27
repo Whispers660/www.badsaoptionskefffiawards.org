@@ -12,7 +12,6 @@
     display: flex;
   }
 
-  /* Sidebar styling */
   .sidebar {
     position: fixed;
     left: 0;
@@ -29,49 +28,45 @@
     scrollbar-color: #1e5b8c #0a3d62;
     z-index: 10;
   }
-  .sidebar::-webkit-scrollbar {
-    width: 6px;
-  }
-  .sidebar::-webkit-scrollbar-thumb {
-    background-color: #1e5b8c;
-    border-radius: 4px;
-  }
+
   .sidebar h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 20px;
-    color: #f1f1f1;
+    color: #f9f9f9;
   }
+
   .sidebar a {
     color: white;
     text-decoration: none;
     padding: 12px 20px;
     margin: 4px 0;
     display: block;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
   }
+
   .sidebar a:hover {
     background-color: #1e5b8c;
   }
 
-  /* Main content */
   .main-content {
     margin-left: 240px;
     padding: 30px;
     width: calc(100% - 240px);
     transition: opacity 0.6s ease;
   }
+
   .dashboard, section {
     opacity: 0;
     display: none;
     transition: opacity 0.6s ease;
   }
+
   .active {
     display: block;
     opacity: 1;
   }
 
-  /* Back button */
   button.back-btn {
     background-color: #0a3d62;
     color: white;
@@ -81,11 +76,11 @@
     cursor: pointer;
     margin-top: 20px;
   }
+
   button.back-btn:hover {
     background-color: #1e5b8c;
   }
 
-  /* Floating menu for mobile */
   .floating-menu {
     display: none;
   }
@@ -115,6 +110,49 @@
       z-index: 20;
     }
   }
+
+  .upload-area {
+    margin-bottom: 20px;
+  }
+
+  .file-list {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+  }
+
+  .file-item:last-child {
+    border-bottom: none;
+  }
+
+  .file-name {
+    font-weight: bold;
+  }
+
+  .file-date {
+    font-size: 0.9em;
+    color: #555;
+    margin-left: 10px;
+  }
+
+  .download-link {
+    color: #0a3d62;
+    text-decoration: none;
+  }
+
+  .download-link:hover {
+    text-decoration: underline;
+  }
+
 </style>
 </head>
 <body>
@@ -130,94 +168,75 @@
     <a href="#" onclick="showSection('integration')">Integration & Reintegration</a>
     <a href="#" onclick="showSection('diaspora')">Diaspora Linkages</a>
     <a href="#" onclick="showSection('rotary')">Rotary Club</a>
+    <a href="#" onclick="showSection('downloads')">📄 Downloads</a>
   </div>
 
   <div class="main-content">
+
+    <!-- Dashboard -->
     <div id="dashboard" class="dashboard active">
       <h1>Welcome to Global Gopher Fund for Nature</h1>
-      <p>
-        Bridging Advisory Development Support Agency Options dabbed BADSA Options web-site is primarily part of the 
+      <p>Bridging Advisory Development Support Agency Options dabbed BADSA Options web-site is primarily part of the 
         Web-Cam Team undertaking Global Gopher Fund for Nature, which is part of the webliography including and not
-        not limited to Whitley Award among others.<br><br>
-        The primary Baseboard collections are impelled in the following colloquium and not limited to the following descriptions:<br><br>
-        a. Institutional Framework (Log frame)<br>
-        b. Accreditation<br>
-        c. Coordination<br>
-        d. Placement Offers<br>
-        e. Itinerary Shares<br>
-        f. Registration
+        not limited to Whitley Award among others.<br>
+        The primary Baseboard collections are impelled in the following colloquium and not limited to the following descriptions<br>
+        a. Institutional Framework (Log frame)</br>
+        b. Accreditation</br> 
+        c. Coordination</br> 
+        d. Placement Offers</br> 
+        e. Itinerary Shares</br>
+        f. Registration</br>
       </p>
+      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </div>
 
+    <!-- Sections -->
     <section id="institutional">
       <h2>Institutional Framework</h2>
-      <p>
-        <strong>For:</strong> Traceable learning/training workshops, high-level meetings/summits & information documentation (academia) projects.
-      </p>
+      <p><strong>For:</strong> Traceable learning/training workshops, high-level meetings/summits & information documentation (academia) projects.</p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
 
     <section id="accreditation">
       <h2>Accreditation</h2>
-      <p>
-        Is impelled in passion and not limited to fluency in English or Finnish for accuracy but you/one must be able to or believe in the cohort translating at work. 
-        But for Awards, the lead applicant must be present for the award.
-      </p>
+      <p>Is impelled in passion and not limited to fluency in English or Finnish for accuracy but you/one must be able to or believe in the cohort translating at work. But for Awards, the lead applicant must be present for the award.</p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
 
     <section id="coordination">
       <h2>Coordination</h2>
-      <p>
-        Is simply primarily administered for groups of people, work, area, species, habitat and Peoples generated business ideas (pgbi) in an efficient or organized way, 
-        with need for greater coordination between departments to the realization of Households Economic Recovery Initiatives, hence the Global Gopher Fund coordination 
-        at www.badsaoptionskefffiawards.org
-      </p>
+      <p>Is simply primarily administered for groups of people, work, area, species, habitat and Peoples generated business ideas (pgbi) in an efficient or organized way, with need for greater coordination between departments to the realization of Households Economic Recovery Initiatives, hence the Global Gopher Fund coordination at www.badsaoptionskefffiawards.org</p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
 
     <section id="private">
       <h2>Private Placement Offers</h2>
-      <p>
-        Private placement offers capacity building is impelled in Kenya Finland Fauna & Flora International Investments (Inter-saccos) resilient pathways 
-        to manage crisis and shocks.
-      </p>
+      <p>Private placement offers capacity building is impelled in Kenya Finland Fauna & Flora International Investments (Inter-saccos) resilient pathways to manage crisis and shocks.</p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
 
     <section id="itinerary">
       <h2>Itinerary Sharing</h2>
-      <p>
-        Itinerary Sharing is impelled in the budgetary obligations by the Eco-tourism events team under the auspicious management dabbed Mulembe Fiesta Cultural Festivals (MFCF) 
-        as an income generating unit (IGU) for the Sub-National revenue enhancement partnership (SNap-ed) thus private placement offers shares at:<br><br>
-        i. Diamond<br>
-        ii. Copper<br>
-        iii. Gold<br>
-        iv. Silver<br>
-        v. Bronze<br><br>
-        Minimum shares see the other therein.
+      <p>Itinerary Sharing is impelled in the budgetary obligations by the Eco- tourism events team under the auspicious management dabbed Mulembe Fiesta Cultural Festivals (MFCF) as an income generating unit (IGU) for the Sub-National revenue enhancement partnership (SNap-ed) thus private placement offers shares at;<br>
+          i. Diamond<br>
+          ii. Copper<br>
+          iii. Gold<br>
+          iv. Silver<br>
+          v. Bronze<br>
+          Minimum shares see the other therein.
       </p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
 
     <section id="registration">
       <h2>Registration</h2>
-      <p>
-        Is ongoing through Effective Development Community Outreach Mission (EDCOM-4) by participatory equitably owned proficient leadership effective strategies(peoples) 
-        in identity as individuals passion, mob, Groups, cohorts or corporate at corporate Face Card Secretariat, techno parks Online (Armature/Professional) detailing code’s 
-        cooperation and Inter-Sacco’s community Cooperative quality management systems (QMS) principles etc. hence, transparency and accountability for monitoring, 
-        evaluation and learning.
-      </p>
+      <p>Is ongoing through Effective Development Community Outreach Mission (EDCOM-4) by participatory equitably owned proficient leadership effective strategies(peoples) in identity as individuals passion, mob, Groups, cohorts or corporate at corporate Face Card Secretariat , techno parks Online (Armature/Professional) detailing code’s cooperation and Inter-Sacco’s community Cooperative quality management systems (QMS) principles etc. hence, transparency and accountability for monitoring, evaluation and learning.</p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
 
     <section id="integration">
       <h2>Integration & Reintegration</h2>
-      <p>
-        National partnerships effective development Sub-National partnership effective development is impelled in County Integrated Development Plan (CIDP) 
-        as part of Public Private Partnership Initiatives (PPPI) thus the integration & Reintegration of the Kenya prisons industrial parks while interpreting 
-        the residents/Citizen social infrastructural services provisions by the dictates of the citizen Fora 2011-2013 Act section 8.
-      </p>
+      <p>National partnerships effective development Sub-National partnership effective development is impelled in County Integrated Development Plan (CIDP) as part of Public Private Partnership Initiatives (PPPI) thus the integration & Reintegration of the Kenya prisons industrial parks while interpreting the residents/Citizen social infrastructural services provisions by the dictates of the citizen Fora 2011-2013 Act section 8.</p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
 
@@ -232,6 +251,26 @@
       <p></p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads">
+      <h2>📄 Downloads</h2>
+      <div id="adminPrompt">
+        <p>Enter admin key to enable uploads:</p>
+        <input type="password" id="adminKeyInput" placeholder="Enter key" />
+        <button onclick="checkAdminKey()">Submit</button>
+      </div>
+
+      <div id="uploadArea" class="upload-area" style="display:none;">
+        <input type="file" id="fileInput" />
+        <button onclick="uploadFile()">Upload File</button>
+      </div>
+
+      <div class="file-list" id="fileList"></div>
+
+      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+    </section>
+
   </div>
 
   <div class="floating-menu" onclick="toggleMenu()">☰</div>
@@ -251,6 +290,61 @@
       const sidebar = document.querySelector('.sidebar');
       sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
     }
+
+    // --- Admin Key System ---
+    const adminKey = "gopherfund";
+
+    function checkAdminKey() {
+      const inputKey = document.getElementById("adminKeyInput").value;
+      if (inputKey === adminKey) {
+        document.getElementById("uploadArea").style.display = "block";
+        document.getElementById("adminPrompt").style.display = "none";
+      } else {
+        alert("Incorrect key.");
+      }
+    }
+
+    // --- Upload & Download System ---
+    const fileList = document.getElementById("fileList");
+
+    function loadFiles() {
+      const saved = JSON.parse(localStorage.getItem("files") || "[]");
+      fileList.innerHTML = "";
+      saved.forEach(f => {
+        const item = document.createElement("div");
+        item.className = "file-item";
+        item.innerHTML = `
+          <div>
+            <span class="file-name">${f.name}</span>
+            <span class="file-date">(${f.date})</span>
+          </div>
+          <a class="download-link" href="${f.url}" download="${f.name}">Download</a>
+        `;
+        fileList.appendChild(item);
+      });
+    }
+
+    function uploadFile() {
+      const input = document.getElementById("fileInput");
+      const file = input.files[0];
+      if (!file) return alert("Select a file first.");
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const saved = JSON.parse(localStorage.getItem("files") || "[]");
+        saved.push({
+          name: file.name,
+          date: new Date().toLocaleString(),
+          url: e.target.result
+        });
+        localStorage.setItem("files", JSON.stringify(saved));
+        loadFiles();
+      };
+      reader.readAsDataURL(file);
+      input.value = "";
+    }
+
+    loadFiles();
   </script>
 </body>
 </html>
