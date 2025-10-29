@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Global Gopher Fund for Nature</title>
+<title>Global Goffer Fund for Nature</title>
 
 <!-- Modern professional font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -53,8 +53,15 @@
 
   .sidebar a:hover {
     background-color: #ffffff22;
+    padding-left: 24px;
+  }
+
+  /* Highlight active sidebar link */
+  .sidebar a.active-link {
+    background-color: #ffffff22;
     border-left: 3px solid #27AE60;
     padding-left: 24px;
+    font-weight: 500;
   }
 
   /* Main content */
@@ -128,7 +135,7 @@
 
   <div class="sidebar">
 
-    <!-- Placeholder Logo (No image yet, as requested) -->
+    <!-- Placeholder logo (you will replace with real logo later) -->
     <div class="sidebar-logo">
       <div style="
         border: 1px solid #ffffff40;
@@ -145,7 +152,7 @@
       </div>
     </div>
 
-    <a href="#" onclick="showSection('dashboard')">Dashboard</a>
+    <a href="#" onclick="showSection('dashboard')" class="active-link">Dashboard</a>
     <a href="#" onclick="showSection('institutional')">Institutional Framework</a>
     <a href="#" onclick="showSection('accreditation')">Accreditation</a>
     <a href="#" onclick="showSection('coordination')">Coordination</a>
@@ -261,9 +268,13 @@
         el.classList.remove('active');
         el.style.opacity = 0;
       });
+
       const active = document.getElementById(id);
       active.classList.add('active');
       setTimeout(() => active.style.opacity = 1, 10);
+
+      document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active-link'));
+      document.querySelector(`.sidebar a[onclick="showSection('${id}')"]`).classList.add('active-link');
     }
 
     function toggleMenu() {
