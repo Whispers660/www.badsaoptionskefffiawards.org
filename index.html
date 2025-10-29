@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Global Gopher Fund for Nature</title>
+<title>Global Goffer Fund for Nature</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
- body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background:
-    linear-gradient(135deg, #f4f4f9, #e9f7f0),
-    url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-  background-color: #f4f4f9; /* fallback color */
-  letter-spacing: .3px;
-}
-
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background:
+      linear-gradient(135deg, #f4f4f9, #e9f7f0),
+      url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-color: #f4f4f9;
+    letter-spacing: .3px;
+  }
 
   /* Sidebar */
   .sidebar {
@@ -42,9 +41,15 @@
 
   .sidebar-logo {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
+  /* Close button (mobile only) */
+  .close-btn {
+    display: none;
+  }
+
+  /* Sidebar links */
   .sidebar a {
     color: white;
     text-decoration: none;
@@ -68,7 +73,7 @@
     font-weight: 500;
   }
 
-  /* Overlay for mobile */
+  /* Overlay */
   .overlay {
     position: fixed;
     inset: 0;
@@ -107,26 +112,44 @@
     cursor: pointer;
     margin-top: 20px;
   }
-  .back-btn:hover { background-color: #1e5b8c; }
 
-  /* Floating Menu Button */
+  /* Floating Menu */
   .floating-menu {
     display: none;
   }
 
-  /* Mobile view */
+  /* Mobile */
   @media (max-width: 768px) {
     .sidebar {
       left: -260px;
+      animation: slideIn 0.35s ease;
     }
     .sidebar.open {
       left: 0;
     }
+
+    @keyframes slideIn {
+      from { transform: translateX(-30px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .close-btn {
+      display: block;
+      font-size: 26px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: right;
+      padding: 0 18px 10px 0;
+      color: #ffffffcc;
+      margin-bottom: 10px;
+    }
+
     .main-content {
       margin-left: 0;
       width: 100%;
       padding: 25px;
     }
+
     .floating-menu {
       position: fixed;
       bottom: 25px;
@@ -155,6 +178,8 @@
       <div style="font-size: 11px; opacity: 0.9; margin-top:3px;">Global Gopher Fund for Nature</div>
     </div>
   </div>
+
+  <div class="close-btn" onclick="closeSidebar()">×</div>
 
   <a href="#" onclick="showSection('dashboard')" class="active-link">Dashboard</a>
   <a href="#" onclick="showSection('institutional')">Institutional Framework</a>
