@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Global Goffer Fund for Nature</title>
 
-<!-- Modern professional font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -16,7 +15,7 @@
     letter-spacing: .3px;
   }
 
-  /* Sidebar styling */
+  /* Sidebar */
   .sidebar {
     position: fixed;
     left: 0;
@@ -30,6 +29,8 @@
     flex-direction: column;
     overflow-y: auto;
     border-right: 1px solid #ffffff22;
+    transition: left 0.35s ease;
+    z-index: 30;
   }
 
   .sidebar::-webkit-scrollbar { width: 6px; }
@@ -56,7 +57,6 @@
     padding-left: 24px;
   }
 
-  /* Highlight active sidebar link */
   .sidebar a.active-link {
     background-color: #ffffff22;
     border-left: 3px solid #27AE60;
@@ -64,24 +64,24 @@
     font-weight: 500;
   }
 
-  /* Main content */
+  /* Overlay for mobile */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: none;
+    z-index: 20;
+  }
+  .overlay.show {
+    display: block;
+  }
+
+  /* Main Content */
   .main-content {
     margin-left: 240px;
     padding: 45px;
     width: calc(100% - 240px);
-    transition: opacity 0.4s ease;
     line-height: 1.6;
-  }
-
-  .main-content h1, .main-content h2 {
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-
-  .main-content p {
-    max-width: 850px;
-    font-size: 15px;
-    color: #333;
   }
 
   .dashboard, section {
@@ -89,43 +89,54 @@
     display: none;
     transition: opacity 0.4s ease;
   }
-
   .active {
     display: block;
     opacity: 1;
   }
 
-  button.back-btn {
+  .back-btn {
     background-color: #0a3d62;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 18px;
     border-radius: 6px;
     cursor: pointer;
     margin-top: 20px;
   }
-  button.back-btn:hover { background-color: #1e5b8c; }
+  .back-btn:hover { background-color: #1e5b8c; }
 
-  /* Floating menu for mobile */
-  .floating-menu { display: none; }
+  /* Floating Menu Button */
+  .floating-menu {
+    display: none;
+  }
 
+  /* Mobile view */
   @media (max-width: 768px) {
-    .sidebar { display: none; }
-    .main-content { margin-left: 0; width: 100%; padding: 20px; }
+    .sidebar {
+      left: -260px;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      padding: 25px;
+    }
     .floating-menu {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 25px;
+      right: 25px;
       background-color: #0a3d62;
       color: white;
       padding: 15px;
       border-radius: 50%;
-      font-size: 22px;
+      font-size: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 20;
+      z-index: 40;
     }
   }
 </style>
@@ -133,155 +144,152 @@
 
 <body>
 
-  <div class="sidebar">
-
-    <!-- Placeholder logo (you will replace with real logo later) -->
-    <div class="sidebar-logo">
-      <div style="
-        border: 1px solid #ffffff40;
-        padding: 18px 10px;
-        border-radius: 10px;
-        background: #ffffff15;
-      ">
-        <div style="font-size: 26px; font-weight: 700; letter-spacing: 2px;">
-          GGFN
-        </div>
-        <div style="font-size: 11px; opacity: 0.9; margin-top:3px;">
-          Global Gopher Fund for Nature
-        </div>
-      </div>
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <div style="border: 1px solid #ffffff40; padding: 18px 10px; border-radius: 10px; background: #ffffff15;">
+      <div style="font-size: 26px; font-weight: 700; letter-spacing: 2px;">GGFN</div>
+      <div style="font-size: 11px; opacity: 0.9; margin-top:3px;">Global Gopher Fund for Nature</div>
     </div>
-
-    <a href="#" onclick="showSection('dashboard')" class="active-link">Dashboard</a>
-    <a href="#" onclick="showSection('institutional')">Institutional Framework</a>
-    <a href="#" onclick="showSection('accreditation')">Accreditation</a>
-    <a href="#" onclick="showSection('coordination')">Coordination</a>
-    <a href="#" onclick="showSection('registration')">Registration</a>
-    <a href="#" onclick="showSection('itinerary')">Itinerary Sharing</a>
-    <a href="#" onclick="showSection('private')">Private Placement Offers</a>
-    <a href="#" onclick="showSection('integration')">Integration & Reintegration</a>
-    <a href="#" onclick="showSection('diaspora')">Diaspora Linkages</a>
-
   </div>
 
-  <div class="main-content">
-    <div id="dashboard" class="dashboard active">
-      <h1>Welcome to Global Gopher Fund for Nature</h1>
-      <p>
-        Bridging Advisory Development Support Agency Options dabbed BADSA Options web-site is primarily part of the 
-        Web-Cam Team undertaking Global Gopher Fund for Nature, which is part of the webliography including and not
-        not limited to Whitley Award among others.<br><br>
-        The primary Baseboard collections are impelled in the following colloquium and not limited to the following descriptions:<br><br>
-        a. Institutional Framework (Log frame)<br>
-        b. Accreditation<br>
-        c. Coordination<br>
-        d. Placement Offers<br>
-        e. Itinerary Shares<br>
-        f. Registration
-      </p>
-    </div>
+  <a href="#" onclick="showSection('dashboard')" class="active-link">Dashboard</a>
+  <a href="#" onclick="showSection('institutional')">Institutional Framework</a>
+  <a href="#" onclick="showSection('accreditation')">Accreditation</a>
+  <a href="#" onclick="showSection('coordination')">Coordination</a>
+  <a href="#" onclick="showSection('registration')">Registration</a>
+  <a href="#" onclick="showSection('itinerary')">Itinerary Sharing</a>
+  <a href="#" onclick="showSection('private')">Private Placement Offers</a>
+  <a href="#" onclick="showSection('integration')">Integration & Reintegration</a>
+  <a href="#" onclick="showSection('diaspora')">Diaspora Linkages</a>
+</div>
 
-    <section id="institutional">
-      <h2>Institutional Framework</h2>
-      <p>
-        For: Traceable learning/training workshops, high-level meetings/summits & information documentation (academia) projects.
-      </p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
+<div class="overlay" onclick="closeSidebar()"></div>
 
-    <section id="accreditation">
-      <h2>Accreditation</h2>
-      <p>
-        Is impelled in passion and not limited to fluency in English or Finnish for accuracy but you/one must be able to or believe in the cohort translating at work. 
-        But for Awards, the lead applicant must be present for the award.
-      </p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
+<div class="main-content">
 
-    <section id="coordination">
-      <h2>Coordination</h2>
-      <p>
-        Is simply primarily administered for groups of people, work, area, species, habitat and Peoples generated business ideas (pgbi) in an efficient or organized way, 
-        with need for greater coordination between departments to the realization of Households Economic Recovery Initiatives, hence the Global Gopher Fund coordination 
-        at www.badsaoptionskefffiawards.org
-      </p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
-
-    <section id="private">
-      <h2>Private Placement Offers</h2>
-      <p>
-        Private placement offers capacity building is impelled in Kenya Finland Fauna & Flora International Investments (Inter-saccos) resilient pathways 
-        to manage crisis and shocks.
-      </p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
-
-    <section id="itinerary">
-      <h2>Itinerary Sharing</h2>
-      <p>
-        Itinerary Sharing is impelled in the budgetary obligations by the Eco-tourism events team under the auspicious management dabbed Mulembe Fiesta Cultural Festivals (MFCF) 
-        as an income generating unit (IGU) for the Sub-National revenue enhancement partnership (SNap-ed) thus private placement offers shares at:<br><br>
-        i. Diamond<br>
-        ii. Copper<br>
-        iii. Gold<br>
-        iv. Silver<br>
-        v. Bronze<br><br>
-        Minimum shares see the other therein.
-      </p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
-
-    <section id="registration">
-      <h2>Registration</h2>
-      <p>
-        Is ongoing through Effective Development Community Outreach Mission (EDCOM-4) by participatory equitably owned proficient leadership effective strategies(peoples) 
-        in identity as individuals passion, mob, Groups, cohorts or corporate at corporate Face Card Secretariat, techno parks Online (Armature/Professional) detailing code’s 
-        cooperation and Inter-Sacco’s community Cooperative quality management systems (QMS) principles etc. hence, transparency and accountability for monitoring, 
-        evaluation and learning.
-      </p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
-
-    <section id="integration">
-      <h2>Integration & Reintegration</h2>
-      <p>
-        National partnerships effective development Sub-National partnership effective development is impelled in County Integrated Development Plan (CIDP) 
-        as part of Public Private Partnership Initiatives (PPPI) thus the integration & Reintegration of the Kenya prisons industrial parks while interpreting 
-        the residents/Citizen social infrastructural services provisions by the dictates of the citizen Fora 2011-2013 Act section 8.
-      </p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
-
-    <section id="diaspora">
-      <h2>Diaspora Linkages</h2>
-      <p></p>
-      <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
-    </section>
+  <div id="dashboard" class="dashboard active">
+    <h1>Welcome to Global Gopher Fund for Nature</h1>
+    <p>
+      Bridging Advisory Development Support Agency Options dabbed BADSA Options web-site is primarily part of the 
+      Web-Cam Team undertaking Global Gopher Fund for Nature, which is part of the webliography including and not
+      not limited to Whitley Award among others.<br><br>
+      The primary Baseboard collections are impelled in the following colloquium and not limited to the following descriptions:<br><br>
+      a. Institutional Framework (Log frame)<br>
+      b. Accreditation<br>
+      c. Coordination<br>
+      d. Placement Offers<br>
+      e. Itinerary Shares<br>
+      f. Registration
+    </p>
   </div>
 
-  <div class="floating-menu" onclick="toggleMenu()">☰</div>
+  <section id="institutional">
+    <h2>Institutional Framework</h2>
+    <p>For: Traceable learning/training workshops, high-level meetings/summits & information documentation (academia) projects.</p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
 
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('.dashboard, section').forEach(el => {
-        el.classList.remove('active');
-        el.style.opacity = 0;
-      });
+  <section id="accreditation">
+    <h2>Accreditation</h2>
+    <p>
+      Is impelled in passion and not limited to fluency in English or Finnish for accuracy but you/one must be able to or believe in the cohort translating at work. 
+      But for Awards, the lead applicant must be present for the award.
+    </p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
 
-      const active = document.getElementById(id);
-      active.classList.add('active');
-      setTimeout(() => active.style.opacity = 1, 10);
+  <section id="coordination">
+    <h2>Coordination</h2>
+    <p>
+      Is simply primarily administered for groups of people, work, area, species, habitat and Peoples generated business ideas (pgbi) in an efficient or organized way, 
+      with need for greater coordination between departments to the realization of Households Economic Recovery Initiatives, hence the Global Gopher Fund coordination 
+      at www.badsaoptionskefffiawards.org
+    </p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
 
-      document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active-link'));
-      document.querySelector(`.sidebar a[onclick="showSection('${id}')"]`).classList.add('active-link');
-    }
+  <section id="private">
+    <h2>Private Placement Offers</h2>
+    <p>
+      Private placement offers capacity building is impelled in Kenya Finland Fauna & Flora International Investments (Inter-saccos) resilient pathways 
+      to manage crisis and shocks.
+    </p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
 
-    function toggleMenu() {
-      const sidebar = document.querySelector('.sidebar');
-      sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
-    }
-  </script>
+  <section id="itinerary">
+    <h2>Itinerary Sharing</h2>
+    <p>
+      Itinerary Sharing is impelled in the budgetary obligations by the Eco-tourism events team under the auspicious management dabbed Mulembe Fiesta Cultural Festivals (MFCF) 
+      as an income generating unit (IGU) for the Sub-National revenue enhancement partnership (SNap-ed) thus private placement offers shares at:<br><br>
+      i. Diamond<br>
+      ii. Copper<br>
+      iii. Gold<br>
+      iv. Silver<br>
+      v. Bronze<br><br>
+      Minimum shares see the other therein.
+    </p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
+
+  <section id="registration">
+    <h2>Registration</h2>
+    <p>
+      Is ongoing through Effective Development Community Outreach Mission (EDCOM-4) by participatory equitably owned proficient leadership effective strategies(peoples) 
+      in identity as individuals passion, mob, Groups, cohorts or corporate at corporate Face Card Secretariat, techno parks Online (Armature/Professional) detailing code’s 
+      cooperation and Inter-Sacco’s community Cooperative quality management systems (QMS) principles etc. hence, transparency and accountability for monitoring, 
+      evaluation and learning.
+    </p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
+
+  <section id="integration">
+    <h2>Integration & Reintegration</h2>
+    <p>
+      National partnerships effective development Sub-National partnership effective development is impelled in County Integrated Development Plan (CIDP) 
+      as part of Public Private Partnership Initiatives (PPPI) thus the integration & Reintegration of the Kenya prisons industrial parks while interpreting 
+      the residents/Citizen social infrastructural services provisions by the dictates of the citizen Fora 2011-2013 Act section 8.
+    </p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
+
+  <section id="diaspora">
+    <h2>Diaspora Linkages</h2>
+    <p></p>
+    <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
+  </section>
+
+</div>
+
+<div class="floating-menu" onclick="toggleSidebar()">☰</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.dashboard, section').forEach(el => {
+      el.classList.remove('active');
+      el.style.opacity = 0;
+    });
+
+    const active = document.getElementById(id);
+    active.classList.add('active');
+    setTimeout(() => active.style.opacity = 1, 10);
+
+    document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active-link'));
+    document.querySelector(`.sidebar a[onclick="showSection('${id}')"]`).classList.add('active-link');
+
+    closeSidebar();
+  }
+
+  function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.querySelector('.overlay').classList.toggle('show');
+  }
+
+  function closeSidebar() {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.querySelector('.overlay').classList.remove('show');
+  }
+</script>
 
 </body>
 </html>
