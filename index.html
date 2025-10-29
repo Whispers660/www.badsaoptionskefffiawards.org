@@ -4,12 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Global Goffer Fund for Nature</title>
+
+<!-- Modern professional font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     background-color: #f4f4f9;
-    display: flex;
+    letter-spacing: .3px;
   }
 
   /* Sidebar styling */
@@ -19,59 +23,71 @@
     top: 0;
     width: 240px;
     height: 100%;
-    background-color: #0a3d62;
+    background: linear-gradient(180deg, #0a3d62, #0a3d62ee);
     color: white;
-    padding-top: 20px;
+    padding-top: 35px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #1e5b8c #0a3d62;
-    z-index: 10;
+    border-right: 1px solid #ffffff22;
   }
-  .sidebar::-webkit-scrollbar {
-    width: 6px;
-  }
-  .sidebar::-webkit-scrollbar-thumb {
-    background-color: #1e5b8c;
-    border-radius: 4px;
-  }
-  .sidebar h2 {
+
+  .sidebar::-webkit-scrollbar { width: 6px; }
+  .sidebar::-webkit-scrollbar-thumb { background-color: #1e5b8c; border-radius: 4px; }
+
+  .sidebar-logo {
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 20px;
-    color: #f1f1f1;
+    margin-bottom: 25px;
   }
+
   .sidebar a {
     color: white;
     text-decoration: none;
     padding: 12px 20px;
-    margin: 4px 0;
+    margin: 6px 0;
     display: block;
-    transition: background-color 0.3s;
+    border-left: 3px solid transparent;
+    transition: all 0.3s;
+    font-weight: 400;
   }
+
   .sidebar a:hover {
-    background-color: #1e5b8c;
+    background-color: #ffffff22;
+    border-left: 3px solid #27AE60;
+    padding-left: 24px;
   }
 
   /* Main content */
   .main-content {
     margin-left: 240px;
-    padding: 30px;
+    padding: 45px;
     width: calc(100% - 240px);
-    transition: opacity 0.6s ease;
+    transition: opacity 0.4s ease;
+    line-height: 1.6;
   }
+
+  .main-content h1, .main-content h2 {
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .main-content p {
+    max-width: 850px;
+    font-size: 15px;
+    color: #333;
+  }
+
   .dashboard, section {
     opacity: 0;
     display: none;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.4s ease;
   }
+
   .active {
     display: block;
     opacity: 1;
   }
 
-  /* Back button */
   button.back-btn {
     background-color: #0a3d62;
     color: white;
@@ -81,24 +97,14 @@
     cursor: pointer;
     margin-top: 20px;
   }
-  button.back-btn:hover {
-    background-color: #1e5b8c;
-  }
+  button.back-btn:hover { background-color: #1e5b8c; }
 
   /* Floating menu for mobile */
-  .floating-menu {
-    display: none;
-  }
+  .floating-menu { display: none; }
 
   @media (max-width: 768px) {
-    .sidebar {
-      display: none;
-    }
-    .main-content {
-      margin-left: 0;
-      width: 100%;
-      padding: 20px;
-    }
+    .sidebar { display: none; }
+    .main-content { margin-left: 0; width: 100%; padding: 20px; }
     .floating-menu {
       position: fixed;
       bottom: 20px;
@@ -117,9 +123,28 @@
   }
 </style>
 </head>
+
 <body>
+
   <div class="sidebar">
-    <h2>🌍 Global Goffer Fund</h2>
+
+    <!-- Placeholder Logo (No image yet, as requested) -->
+    <div class="sidebar-logo">
+      <div style="
+        border: 1px solid #ffffff40;
+        padding: 18px 10px;
+        border-radius: 10px;
+        background: #ffffff15;
+      ">
+        <div style="font-size: 26px; font-weight: 700; letter-spacing: 2px;">
+          GGFN
+        </div>
+        <div style="font-size: 11px; opacity: 0.9; margin-top:3px;">
+          Global Gopher Fund for Nature
+        </div>
+      </div>
+    </div>
+
     <a href="#" onclick="showSection('dashboard')">Dashboard</a>
     <a href="#" onclick="showSection('institutional')">Institutional Framework</a>
     <a href="#" onclick="showSection('accreditation')">Accreditation</a>
@@ -129,6 +154,7 @@
     <a href="#" onclick="showSection('private')">Private Placement Offers</a>
     <a href="#" onclick="showSection('integration')">Integration & Reintegration</a>
     <a href="#" onclick="showSection('diaspora')">Diaspora Linkages</a>
+
   </div>
 
   <div class="main-content">
@@ -151,7 +177,7 @@
     <section id="institutional">
       <h2>Institutional Framework</h2>
       <p>
-        <strong>For:</strong> Traceable learning/training workshops, high-level meetings/summits & information documentation (academia) projects.
+        For: Traceable learning/training workshops, high-level meetings/summits & information documentation (academia) projects.
       </p>
       <button class="back-btn" onclick="showSection('dashboard')">← Back</button>
     </section>
@@ -245,5 +271,6 @@
       sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
     }
   </script>
+
 </body>
 </html>
