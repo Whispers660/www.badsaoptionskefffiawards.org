@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Global Gopher Fund for Nature</title>
+<title>Global Goffer Fund for Nature</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -16,6 +16,31 @@
       url('https://www.transparenttextures.com/patterns/paper-fibers.png');
     background-color: #f4f4f9;
     letter-spacing: .3px;
+  }
+
+  /* Header */
+  .top-header {
+    margin-left: 240px;
+    padding: 18px 32px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid #d9d9d9;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    box-shadow: 0 4px 12px rgba(10, 61, 98, 0.08);
+  }
+  .top-header h1 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+    color: #0a3d62;
+  }
+  .top-header p {
+    margin: 3px 0 0 0;
+    font-size: 12.7px;
+    color: #3c3c3c;
+    opacity: 0.85;
   }
 
   /* Sidebar */
@@ -44,12 +69,10 @@
     margin-bottom: 20px;
   }
 
-  /* Close button (mobile only) */
   .close-btn {
     display: none;
   }
 
-  /* Sidebar links */
   .sidebar a {
     color: white;
     text-decoration: none;
@@ -61,19 +84,9 @@
     font-weight: 400;
   }
 
-  .sidebar a:hover {
-    background-color: #ffffff22;
-    padding-left: 24px;
-  }
+  .sidebar a:hover { background-color: #ffffff22; padding-left: 24px; }
+  .sidebar a.active-link { background-color: #ffffff22; border-left: 3px solid #27AE60; padding-left: 24px; font-weight: 500; }
 
-  .sidebar a.active-link {
-    background-color: #ffffff22;
-    border-left: 3px solid #27AE60;
-    padding-left: 24px;
-    font-weight: 500;
-  }
-
-  /* Overlay */
   .overlay {
     position: fixed;
     inset: 0;
@@ -81,11 +94,8 @@
     display: none;
     z-index: 20;
   }
-  .overlay.show {
-    display: block;
-  }
+  .overlay.show { display: block; }
 
-  /* Main Content */
   .main-content {
     margin-left: 240px;
     padding: 45px;
@@ -93,15 +103,8 @@
     line-height: 1.6;
   }
 
-  .dashboard, section {
-    opacity: 0;
-    display: none;
-    transition: opacity 0.4s ease;
-  }
-  .active {
-    display: block;
-    opacity: 1;
-  }
+  .dashboard, section { opacity: 0; display: none; transition: opacity 0.4s ease; }
+  .active { display: block; opacity: 1; }
 
   .back-btn {
     background-color: #0a3d62;
@@ -113,13 +116,13 @@
     margin-top: 20px;
   }
 
-  /* Floating Menu */
-  .floating-menu {
-    display: none;
-  }
+  .floating-menu { display: none; }
 
   /* Mobile */
   @media (max-width: 768px) {
+
+    .top-header { margin-left: 0; padding: 16px 20px; }
+
     .sidebar {
       left: -260px;
       animation: slideIn 0.35s ease;
@@ -127,7 +130,6 @@
     .sidebar.open {
       left: 0;
     }
-
     @keyframes slideIn {
       from { transform: translateX(-30px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
@@ -144,11 +146,7 @@
       margin-bottom: 10px;
     }
 
-    .main-content {
-      margin-left: 0;
-      width: 100%;
-      padding: 25px;
-    }
+    .main-content { margin-left: 0; width: 100%; padding: 25px; }
 
     .floating-menu {
       position: fixed;
@@ -170,6 +168,11 @@
 </head>
 
 <body>
+
+<header class="top-header">
+  <h1>Global Gopher Fund for Nature</h1>
+  <p>Kenya Finland Fauna & Flora Initiative • KEFFFI Awards Program</p>
+</header>
 
 <div class="sidebar">
   <div class="sidebar-logo">
@@ -195,6 +198,8 @@
 <div class="overlay" onclick="closeSidebar()"></div>
 
 <div class="main-content">
+
+  <!-- CONTENT SECTIONS REMAIN EXACTLY THE SAME BELOW -->
 
   <div id="dashboard" class="dashboard active">
     <h1>Welcome to Global Gopher Fund for Nature</h1>
