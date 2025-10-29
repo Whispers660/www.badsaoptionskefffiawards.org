@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Global Goffer Fund for Nature</title>
+<title>Global Gopher Fund for Nature</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -18,10 +18,10 @@
     letter-spacing: .3px;
   }
 
-  /* Header */
+  /* HEADER */
   .top-header {
-    margin-left: 240px;
     padding: 18px 32px;
+    padding-left: 260px; /* aligned cleanly with content */
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid #d9d9d9;
@@ -30,20 +30,10 @@
     z-index: 15;
     box-shadow: 0 4px 12px rgba(10, 61, 98, 0.08);
   }
-  .top-header h1 {
-    font-size: 20px;
-    margin: 0;
-    font-weight: 600;
-    color: #0a3d62;
-  }
-  .top-header p {
-    margin: 3px 0 0 0;
-    font-size: 12.7px;
-    color: #3c3c3c;
-    opacity: 0.85;
-  }
+  .top-header h1 { margin: 0; font-size: 20px; font-weight: 600; color: #0a3d62; }
+  .top-header p { margin: 3px 0 0; font-size: 12.7px; opacity: .85; color: #3c3c3c; }
 
-  /* Sidebar */
+  /* SIDEBAR */
   .sidebar {
     position: fixed;
     left: 0;
@@ -64,14 +54,9 @@
   .sidebar::-webkit-scrollbar { width: 6px; }
   .sidebar::-webkit-scrollbar-thumb { background-color: #1e5b8c; border-radius: 4px; }
 
-  .sidebar-logo {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  .sidebar-logo { text-align: center; margin-bottom: 20px; }
 
-  .close-btn {
-    display: none;
-  }
+  .close-btn { display: none; }
 
   .sidebar a {
     color: white;
@@ -81,12 +66,11 @@
     display: block;
     border-left: 3px solid transparent;
     transition: all 0.3s;
-    font-weight: 400;
   }
-
   .sidebar a:hover { background-color: #ffffff22; padding-left: 24px; }
   .sidebar a.active-link { background-color: #ffffff22; border-left: 3px solid #27AE60; padding-left: 24px; font-weight: 500; }
 
+  /* OVERLAY (MOBILE BACKDROP) */
   .overlay {
     position: fixed;
     inset: 0;
@@ -96,6 +80,7 @@
   }
   .overlay.show { display: block; }
 
+  /* MAIN CONTENT */
   .main-content {
     margin-left: 240px;
     padding: 45px;
@@ -118,22 +103,12 @@
 
   .floating-menu { display: none; }
 
-  /* Mobile */
+  /* MOBILE */
   @media (max-width: 768px) {
+    .top-header { padding-left: 20px; }
 
-    .top-header { margin-left: 0; padding: 16px 20px; }
-
-    .sidebar {
-      left: -260px;
-      animation: slideIn 0.35s ease;
-    }
-    .sidebar.open {
-      left: 0;
-    }
-    @keyframes slideIn {
-      from { transform: translateX(-30px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
+    .sidebar { left: -260px; }
+    .sidebar.open { left: 0; }
 
     .close-btn {
       display: block;
@@ -184,23 +159,22 @@
 
   <div class="close-btn" onclick="closeSidebar()">×</div>
 
-  <a href="#" onclick="showSection('dashboard')" class="active-link">Dashboard</a>
-  <a href="#" onclick="showSection('institutional')">Institutional Framework</a>
-  <a href="#" onclick="showSection('accreditation')">Accreditation</a>
-  <a href="#" onclick="showSection('coordination')">Coordination</a>
-  <a href="#" onclick="showSection('registration')">Registration</a>
-  <a href="#" onclick="showSection('itinerary')">Itinerary Sharing</a>
-  <a href="#" onclick="showSection('private')">Private Placement Offers</a>
-  <a href="#" onclick="showSection('integration')">Integration & Reintegration</a>
-  <a href="#" onclick="showSection('diaspora')">Diaspora Linkages</a>
+  <a onclick="showSection('dashboard')" class="active-link">Dashboard</a>
+  <a onclick="showSection('institutional')">Institutional Framework</a>
+  <a onclick="showSection('accreditation')">Accreditation</a>
+  <a onclick="showSection('coordination')">Coordination</a>
+  <a onclick="showSection('registration')">Registration</a>
+  <a onclick="showSection('itinerary')">Itinerary Sharing</a>
+  <a onclick="showSection('private')">Private Placement Offers</a>
+  <a onclick="showSection('integration')">Integration & Reintegration</a>
+  <a onclick="showSection('diaspora')">Diaspora Linkages</a>
 </div>
 
 <div class="overlay" onclick="closeSidebar()"></div>
 
 <div class="main-content">
 
-  <!-- CONTENT SECTIONS REMAIN EXACTLY THE SAME BELOW -->
-
+  <!-- ✅ Your full text stays EXACTLY as provided -->
   <div id="dashboard" class="dashboard active">
     <h1>Welcome to Global Gopher Fund for Nature</h1>
     <p>
@@ -304,9 +278,8 @@
       el.style.opacity = 0;
     });
 
-    const active = document.getElementById(id);
-    active.classList.add('active');
-    setTimeout(() => active.style.opacity = 1, 10);
+    document.getElementById(id).classList.add('active');
+    setTimeout(() => document.getElementById(id).style.opacity = 1, 10);
 
     document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active-link'));
     document.querySelector(`.sidebar a[onclick="showSection('${id}')"]`).classList.add('active-link');
