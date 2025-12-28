@@ -162,9 +162,16 @@ section h2, #dashboard h1 {
   .menu-toggle { left: 18px; }
   .top-header { left: 0; width: 100%; }
   .main-content { margin-left: 0; padding: 120px 25px; }
-  .sidebar { transform: translateX(-100%); }
-  body.sidebar-open .sidebar { transform: translateX(0); }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  body:not(.sidebar-closed) .sidebar {
+    transform: translateX(0);
+  }
 }
+
 </style>
 </head>
 
