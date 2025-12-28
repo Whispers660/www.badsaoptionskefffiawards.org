@@ -129,9 +129,16 @@ body.sidebar-closed .main-content {
 }
 
 .dashboard-card h3 {
-  margin: 0 0 8px;
-  color: var(--primary-blue);
-  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-icon {
+  font-size: 18px;
+  color: var(--nature-green);
+  flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .dashboard-card p {
@@ -214,70 +221,72 @@ section h2, #dashboard h1 {
 
   <div class="dashboard-grid">
 
-    <div class="dashboard-card" onclick="showSection('about')">
-      <h3>About Us</h3>
-      <p>
-        An institutional partnership framework established under Kenyan law, driven by post-Covid investment recovery, research, planning, and sustainable innovation through joint international initiatives.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('institutional')">
-      <h3>Institutional Framework</h3>
-      <p>
-        Focuses on structured, traceable learning, high-level engagements, workshops, summits, and academic documentation that support sustainable development objectives.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('accreditation')">
-      <h3>Accreditation</h3>
-      <p>
-        Managed by a dedicated administrative team to ensure quality assurance, language fluency, cohort integrity, and compliance in awards and program participation.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('coordination')">
-      <h3>Coordination</h3>
-      <p>
-        Provides organized alignment of people, projects, habitats, species, and enterprise ideas to support economic recovery and inter-departmental collaboration.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('registration')">
-      <h3>Registration</h3>
-      <p>
-        Operates as a centralized one-stop system through Techno-Parks and online platforms to ensure transparency, accountability, and effective monitoring.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('itinerary')">
-      <h3>Itinerary Sharing</h3>
-      <p>
-        Enables structured partner collaboration through eco-tourism events, graded participation models, and income-generating cultural initiatives.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('private')">
-      <h3>Private Placement Offers</h3>
-      <p>
-        A sustainability-driven investment and capacity-building mechanism supporting innovation, resilience, and equitable economic development pathways.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('integration')">
-      <h3>Integration & Reintegration</h3>
-      <p>
-        Strengthens local and international ecosystem engagement through diaspora-linked collective action and community-based correctional initiatives.
-      </p>
-    </div>
-
-    <div class="dashboard-card" onclick="showSection('diaspora')">
-      <h3>Diaspora Linkages</h3>
-      <p>
-        Connects global institutions, tourism bodies, research organizations, and international partners to national and sub-national development agendas.
-      </p>
-    </div>
-
+  <div class="dashboard-card" onclick="showSection('about')">
+    <h3><span class="dashboard-icon">🌍</span>About Us</h3>
+    <p>
+      Establishes the foundation and purpose of the Global Gopher Fund for Nature, outlining its identity, guiding vision, and international collaboration focus.
+    </p>
   </div>
+
+  <div class="dashboard-card" onclick="showSection('institutional')">
+    <h3><span class="dashboard-icon">🏛️</span>Institutional Framework</h3>
+    <p>
+      Defines how learning, research, summits, and structured engagements are organized to support sustainable development and policy outcomes.
+    </p>
+  </div>
+
+  <div class="dashboard-card" onclick="showSection('accreditation')">
+    <h3><span class="dashboard-icon">✔️</span>Accreditation</h3>
+    <p>
+      Ensures quality, accountability, and integrity in program participation, awards processes, and cohort-based engagements.
+    </p>
+  </div>
+
+  <div class="dashboard-card" onclick="showSection('coordination')">
+    <h3><span class="dashboard-icon">🔗</span>Coordination</h3>
+    <p>
+      Aligns people, projects, habitats, and enterprise ideas to enable effective collaboration and economic recovery initiatives.
+    </p>
+  </div>
+
+  <div class="dashboard-card" onclick="showSection('registration')">
+    <h3><span class="dashboard-icon">📝</span>Registration</h3>
+    <p>
+      Provides a centralized system for participation, monitoring, and transparency through physical and digital registration platforms.
+    </p>
+  </div>
+
+  <div class="dashboard-card" onclick="showSection('itinerary')">
+    <h3><span class="dashboard-icon">🧭</span>Itinerary Sharing</h3>
+    <p>
+      Facilitates structured engagement among partners through eco-tourism events, cultural programs, and collaborative initiatives.
+    </p>
+  </div>
+
+  <div class="dashboard-card" onclick="showSection('private')">
+    <h3><span class="dashboard-icon">💼</span>Private Placement Offers</h3>
+    <p>
+      Mobilizes investment and capacity-building opportunities to support innovation, resilience, and sustainable economic pathways.
+    </p>
+  </div>
+
+  <div class="dashboard-card" onclick="showSection('integration')">
+    <h3><span class="dashboard-icon">🌱</span>Integration & Reintegration</h3>
+    <p>
+      Strengthens ecosystem engagement by reconnecting communities, institutions, and diaspora-led development efforts.
+    </p>
+  </div>
+
+  <div class="dashboard-card" onclick="showSection('diaspora')">
+    <h3><span class="dashboard-icon">✈️</span>Diaspora Linkages</h3>
+    <p>
+      Connects global partners, institutions, and networks to national and sub-national development agendas.
+    </p>
+  </div>
+
+</div>
+
+
 </div>
 
 
